@@ -13,16 +13,21 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('设置',style: TextStyle(color: Color(AppColors.APPBAR)),),
+          title: Text(
+            '设置',
+            style: TextStyle(color: Color(AppColors.APPBAR)),
+          ),
           iconTheme: IconThemeData(color: Color(AppColors.APPBAR)),
         ),
-
         body: Center(
-            child: FlatButton(onPressed: () {
-          DataUtils.clearLoginInfo();
-          Navigator.of(context).pop();
-          eventBus.fire(LogoutEvent());
-        }, child: Text("退出登录"))));
+            child: FlatButton(
+                color: Color(AppColors.APP_THEME),
+                onPressed: () {
+                  DataUtils.clearLoginInfo();
+                  Navigator.of(context).pop();
+                  eventBus.fire(LogoutEvent());
+                },
+                textColor: Colors.white,
+                child: Text("退出登录",))));
   }
 }
-

@@ -30,6 +30,8 @@ dependencies:
   # 新添加的依赖
   english_words: ^3.1.3
 
+  image_picker: ^0.5.0+9
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -46,6 +48,10 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+#  plugin:
+#    androidPackage: com.oschina.plugins
+#    pluginClass: FlutterToastPlugin
+
   #  To add assets to your application, add an assets section, like this:
   assets:
     #导航栏图标
@@ -61,6 +67,9 @@ flutter:
     - assets/images/cover_img.jpg
     #用户默认头像
     - assets/images/ic_avatar_default.png
+    #摇一摇背景图
+    - assets/images/shake.png
+    - assets/images/ic_add_pics.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

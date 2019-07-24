@@ -6,6 +6,7 @@ import 'package:flutter_app/common/event_bus.dart';
 import 'package:flutter_app/constants/constants.dart';
 import 'package:flutter_app/utils/data_utils.dart';
 import 'package:flutter_app/utils/net_utils.dart';
+import 'package:flutter_app/widgets/base/empty_view.dart';
 import 'package:flutter_app/widgets/base/footer_loadmore.dart';
 import 'package:flutter_app/widgets/news_list_item.dart';
 
@@ -64,29 +65,7 @@ class _NewsListPageState extends State<NewsListPage> {
   @override
   Widget build(BuildContext context) {
     if (!isLogin) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("由于openapi限制，必须登录才能获取资讯！"),
-            InkWell(
-              onTap: () async{
-                final result = await Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => LoginWebPage()));
-                if (result != null && result == 'refresh') {
-                  //登录成功
-                  eventBus.fire(LoginEvent());
-                }
-
-              },
-              child: Text('去登录'),
-            ),
-
-          ],
-
-        ),
-
-      );
+      return EmptyView();
 
 
     }

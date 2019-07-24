@@ -6,6 +6,7 @@ import 'package:flutter_app/common/event_bus.dart';
 import 'package:flutter_app/constants/constants.dart';
 import 'package:flutter_app/utils/data_utils.dart';
 import 'package:flutter_app/utils/net_utils.dart';
+import 'package:flutter_app/widgets/base/empty_view.dart';
 import 'package:flutter_app/widgets/base/footer_loadmore.dart';
 import 'package:flutter_app/widgets/tweet_list_item.dart';
 
@@ -153,32 +154,7 @@ class _TweetPageState extends State<TweetPage>
   @override
   Widget build(BuildContext context) {
     if (!isLogin) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('必须登录才能查看动弹信息！'),
-            InkWell(
-              child: Container(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  '马上登录',
-                  style: TextStyle(color: Color(0xff0000ff)),
-                ),
-              ),
-              onTap: () async {
-                //TODO 跳转登录
-                final result = await Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => LoginWebPage()));
-                if (result != null && result == 'refresh') {
-                  //登录成功
-                  eventBus.fire(LoginEvent());
-                }
-              },
-            ),
-          ],
-        ),
-      );
+      return EmptyView();
     }
 
     return Column(

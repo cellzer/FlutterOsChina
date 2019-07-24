@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/discovery_page.dart';
 import 'package:flutter_app/pages/news_list_page.dart';
 import 'package:flutter_app/pages/profile_page.dart';
+import 'package:flutter_app/pages/publish_tweet_page.dart';
 import 'package:flutter_app/pages/tweet_page.dart';
+//import 'package:flutter_app/plugins/FlutterToast.dart';
+import 'package:flutter_app/utils/data_utils.dart';
 import 'package:flutter_app/widgets/my_drawer.dart';
 import 'package:flutter_app/widgets/navigation_icon_view.dart';
 import 'constants/constants.dart';
@@ -100,7 +103,24 @@ class _HomePageState extends State<HomePage> {
           Icons.add,
           color: Color(AppColors.APPBAR),
 
-        ), onPressed: () {},
+        ), onPressed: () {
+          DataUtils.isLogin().then((islogin){
+
+            if (islogin) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>  PublishTweetPage()));
+
+            }else {
+//              FlutterToast.showToast(
+//                '请先登录!',
+//                duration: 'short',
+//                textColor: 0xffff0000,
+//                textSize: 20.0,
+//              );
+            }
+          });
+
+
+      },
 
 
       ),
